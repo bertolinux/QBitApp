@@ -1,0 +1,89 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/qbitapp.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">
+	    app.initialize();
+	</script>
+	<link href="css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header">
+</div>
+
+<div id="connectionDialog" class="connectionDialog_class">
+	<p>	Connection Dialog </p>
+	<form name="connection">
+		<table>
+			<tr>
+				<th class="labelDialog"> Hostname </th> 
+			</tr>
+			<tr>
+				<td> <input name=hostname type=text class="inputDialog" id="primo"> </td> 
+			</tr>
+			<tr>
+				<th class="labelDialog"> Port </th> 
+			</tr>
+			<tr>
+				<td> <input name=port type=text class="inputDialog"> </td> 
+			</tr>
+			<tr>
+				<th class="labelDialog"> Username </th> 
+			</tr>
+			<tr>
+				<td> <input name=username type=text class="inputDialog"> </td> 
+			</tr>
+			<tr>
+				<th class="labelDialog"> Password </th> 
+			</tr>
+			<tr>
+				<td> <input name=password type=password class="inputDialog"> </td> 
+			</tr>
+		</table>
+		<input type=button value=Save class="button" onclick="app.saveConnection(this.form)">
+	</form>
+</div>
+
+<div id="div_container_downloads" class="div_container_downloads">
+	<div id="div_downloads" class="div_downloads" style="width: 354px; ">
+	</div>
+</div>
+
+<div id="initial" class='null' onclick="onClickTorrent('','')">
+	<div>
+		<span class='name'>.Torrent.Name.ABCDEFGHIILCIIIIDIDIIDIIDIIDS</span><br><br>
+		<span class='size'> Size </span> <span class='speed'> Speed </span> <span id="perc" class='perc' style="height:80px;width:80px"> 100% </span> <span class='eta'> 1h </span>
+	</div>
+</div>
+
+<div id="div_footer" style="text-align: center; vertical-align: middle; height: 60px">
+	<p align="center"> 
+		<input type="button" value="Upload" onclick="upload()" class="button">
+		<input type="button" value="Refresh" onclick="refresh()" class="button">  
+		<input type="button" value="Reset" onclick="reset()" class="button">
+	</p>
+</div>
+
+<div id="div_dialogCommands">
+	<div id="div_torrentNameOnCmdDialog">
+	</div>
+	<span class='name'>.Torrent.Name.ABCDEFGHIILMSMDNNS</span>
+	<form>
+		<input type=hidden value="" name="hash" id="hash">
+		<input type=button value=STOP class="buttons" onclick="manageButton(this.form.hash.value,'stop')"><BR><BR>
+		<input type=button value=START class="buttons" onclick="manageButton(this.form.hash.value,'start')"><BR><BR>
+		<input type=button value=DELETE class="buttons" onclick="manageButton(this.form.hash.value,'delete')"><BR><BR>
+		<input type=button value="DELETE FROM DISK" class="buttons" onclick="manageButton(this.form.hash.value,'deletefromdisk')">
+	</form> 
+</div>
+
+<div id="div_upload">
+	<input type="file" name=filename class="buttons"><br><br>	
+	<input type=button value=Send class="buttons">	
+</div>
+
+</body>
+</html>
